@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://c6x4k4cc5e0us"
+path="res://.godot/imported/musuem.obj-1058858fc67b9aa5d2594ec19ff433c3.mesh"
+
+[deps]
+
+files=["res://.godot/imported/musuem.obj-1058858fc67b9aa5d2594ec19ff433c3.mesh"]
+
+source_file="res://assets/musuem.obj"
+dest_files=["res://.godot/imported/musuem.obj-1058858fc67b9aa5d2594ec19ff433c3.mesh", "res://.godot/imported/musuem.obj-1058858fc67b9aa5d2594ec19ff433c3.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false
