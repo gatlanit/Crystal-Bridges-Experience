@@ -1,7 +1,35 @@
-[gd_scene load_steps=2 format=3 uid="uid://ciku46l3a3nm7"]
+[gd_scene load_steps=7 format=3 uid="uid://ciku46l3a3nm7"]
 
 [ext_resource type="PackedScene" uid="uid://2ju31kvpsco2" path="res://scenes/museum.tscn" id="1_bnt0x"]
+[ext_resource type="PackedScene" uid="uid://clc5dre31iskm" path="res://addons/godot-xr-tools/xr/start_xr.tscn" id="2_aig0f"]
+[ext_resource type="PackedScene" uid="uid://b5b2bb5n5csv5" path="res://scenes/player.tscn" id="3_kd12i"]
 
-[node name="Node3D" type="Node3D"]
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ayq3e"]
+sky_horizon_color = Color(0.6363, 0.646984, 0.663357, 1)
+ground_bottom_color = Color(0.1602, 0.133936, 0.10343, 1)
+ground_horizon_color = Color(0.6363, 0.646984, 0.663357, 1)
+
+[sub_resource type="Sky" id="Sky_d2vqp"]
+sky_material = SubResource("ProceduralSkyMaterial_ayq3e")
+
+[sub_resource type="Environment" id="Environment_0h2sb"]
+background_mode = 2
+sky = SubResource("Sky_d2vqp")
+tonemap_mode = 2
+glow_enabled = true
+
+[node name="Main" type="Node3D"]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0, 0, 0)
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_0h2sb")
 
 [node name="Museum" parent="." instance=ExtResource("1_bnt0x")]
+transform = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, 0, -0.25, 0)
+
+[node name="StartXR" parent="." instance=ExtResource("2_aig0f")]
+
+[node name="Player" parent="." instance=ExtResource("3_kd12i")]
