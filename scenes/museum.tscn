@@ -5,6 +5,7 @@
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_m0dr2"]
 albedo_texture = ExtResource("1_pkhsg")
+metallic_specular = 0.0
 
 [node name="Museum" type="Node3D"]
 
