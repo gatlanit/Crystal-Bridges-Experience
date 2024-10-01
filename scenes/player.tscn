@@ -1,10 +1,14 @@
-[gd_scene load_steps=4 format=3 uid="uid://b5b2bb5n5csv5"]
+[gd_scene load_steps=7 format=3 uid="uid://b5b2bb5n5csv5"]
 
+[ext_resource type="Script" path="res://scenes/player.gd" id="1_c5xcy"]
 [ext_resource type="PackedScene" uid="uid://bq86r4yll8po" path="res://addons/godot-xr-tools/hands/scenes/lowpoly/left_fullglove_low.tscn" id="1_xj06r"]
 [ext_resource type="PackedScene" uid="uid://bufelcry36rw1" path="res://addons/xr-autohandtracker/auto_handtracker.tscn" id="2_a0ncu"]
 [ext_resource type="PackedScene" uid="uid://xqimcf20s2jp" path="res://addons/godot-xr-tools/hands/scenes/lowpoly/right_fullglove_low.tscn" id="2_orsrh"]
+[ext_resource type="AudioStream" uid="uid://caxbqpu1md323" path="res://assets/audio/X.mp3" id="5_330e1"]
+[ext_resource type="AudioStream" uid="uid://4vvvmcpcaegj" path="res://assets/audio/Y.mp3" id="6_bc1lf"]
 
 [node name="Player" type="XROrigin3D"]
+script = ExtResource("1_c5xcy")
 
 [node name="XRCamera3D" type="XRCamera3D" parent="."]
 
@@ -21,3 +25,11 @@ tracker = &"right_hand"
 [node name="RightHand" parent="RightHand" instance=ExtResource("2_orsrh")]
 
 [node name="AutoHandtracker" parent="RightHand" instance=ExtResource("2_a0ncu")]
+
+[node name="AudioStreamPlayerX" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("5_330e1")
+
+[node name="AudioStreamPlayerY" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("6_bc1lf")
+
+[connection signal="button_pressed" from="LeftHand" to="." method="_on_left_hand_button_pressed"]
