@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://2ju31kvpsco2" path="res://scenes/museum.tscn" id="1_bnt0x"]
 [ext_resource type="PackedScene" uid="uid://clc5dre31iskm" path="res://addons/godot-xr-tools/xr/start_xr.tscn" id="2_aig0f"]
 [ext_resource type="PackedScene" uid="uid://b5b2bb5n5csv5" path="res://scenes/player.tscn" id="3_kd12i"]
-[ext_resource type="Script" path="res://scenes/player.gd" id="4_m4f3m"]
+[ext_resource type="Script" path="res://scripts/player.gd" id="4_m4f3m"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ayq3e"]
 sky_horizon_color = Color(0.6363, 0.646984, 0.663357, 1)
