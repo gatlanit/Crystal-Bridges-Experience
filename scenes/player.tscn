@@ -25,4 +25,6 @@ tracker = &"right_hand"
 [node name="AutoHandtracker" parent="RightHand" instance=ExtResource("2_a0ncu")]
 
 [connection signal="button_pressed" from="LeftHand" to="." method="_on_left_hand_button_pressed"]
+[connection signal="input_vector2_changed" from="LeftHand" to="." method="_on_left_hand_input_vector_2_changed"]
 [connection signal="button_pressed" from="RightHand" to="." method="_on_right_hand_button_pressed"]
+[connection signal="input_vector2_changed" from="RightHand" to="." method="_on_right_hand_input_vector_2_changed"]

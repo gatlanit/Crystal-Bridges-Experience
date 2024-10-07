@@ -1,20 +1,26 @@
 extends XROrigin3D
 
 # Do all controller specific things here
+signal bButton
+signal yButton
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
+signal thumbVecL(name: String, value: Vector2)
+signal thumbVecR(name: String, value: Vector2)
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
-
-
+# Left buttons (click)
 func _on_left_hand_button_pressed(name: String) -> void:
-	pass # Replace with function body.
+	if name == "ax_button":
+		yButton.emit()
 
-
+# Right buttons (click)
 func _on_right_hand_button_pressed(name: String) -> void:
-	pass # Replace with function body.
+	if name == "by_button":
+		bButton.emit()
+
+# Left buttons (Vector2)
+func _on_left_hand_input_vector_2_changed(name: String, value: Vector2) -> void:
+	thumbVecL.emit(name, value)
+
+# Right buttons (Vector2)
+func _on_right_hand_input_vector_2_changed(name: String, value: Vector2) -> void:
+	thumbVecR.emit(name, value)
