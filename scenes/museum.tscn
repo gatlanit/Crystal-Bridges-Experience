@@ -1,14 +1,26 @@
-[gd_scene load_steps=4 format=3 uid="uid://2ju31kvpsco2"]
+[gd_scene load_steps=6 format=3 uid="uid://2ju31kvpsco2"]
 
 [ext_resource type="Texture2D" uid="uid://tyyttj30dscd" path="res://assets/textures/CBMAAbuildingOBJ-150K_u1_v1-2.png" id="1_pkhsg"]
+[ext_resource type="Script" path="res://scenes/scripts/museum.gd" id="1_xfjmg"]
 [ext_resource type="ArrayMesh" uid="uid://c6x4k4cc5e0us" path="res://assets/musuem.obj" id="2_o3x0p"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_m0dr2"]
 albedo_texture = ExtResource("1_pkhsg")
 metallic_specular = 0.0
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_v8rbu"]
+size = Vector3(2.12674, 0.572723, 3.18872)
+
 [node name="Museum" type="Node3D"]
+script = ExtResource("1_xfjmg")
 
 [node name="Musuem" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0)
 material_override = SubResource("StandardMaterial3D_m0dr2")
 mesh = ExtResource("2_o3x0p")
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0607758, 0.000457913, 0.00182438)
+shape = SubResource("BoxShape3D_v8rbu")

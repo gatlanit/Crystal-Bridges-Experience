@@ -4,6 +4,7 @@
 [ext_resource type="Script" path="res://scenes/scripts/main.gd" id="1_l4pqy"]
 [ext_resource type="PackedScene" uid="uid://clc5dre31iskm" path="res://addons/godot-xr-tools/xr/start_xr.tscn" id="2_aig0f"]
 [ext_resource type="PackedScene" uid="uid://b5b2bb5n5csv5" path="res://scenes/player.tscn" id="3_kd12i"]
+[ext_resource type="AudioStream" uid="uid://b8b52jn2l67et" path="res://assets/audio/lowRoar.wav" id="5_iwmk5"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ayq3e"]
 sky_horizon_color = Color(0.6363, 0.646984, 0.663357, 1)
@@ -20,20 +21,6 @@ tonemap_mode = 2
 fog_mode = 1
 fog_density = 1.0
 
-[sub_resource type="GDScript" id="GDScript_6fows"]
-script/source = "extends XROrigin3D
-
-
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
-"
-
 [node name="Main" type="Node3D"]
 script = ExtResource("1_l4pqy")
 
@@ -45,9 +32,16 @@ shadow_enabled = true
 environment = SubResource("Environment_0h2sb")
 
 [node name="Museum" parent="." instance=ExtResource("1_bnt0x")]
-transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, -0.1, 0)
 
 [node name="StartXR" parent="." instance=ExtResource("2_aig0f")]
 
 [node name="Player" parent="." instance=ExtResource("3_kd12i")]
-script = SubResource("GDScript_6fows")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.2, 0)
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("5_iwmk5")
+
+[connection signal="bButton" from="Player" to="." method="_on_player_b_button"]
+[connection signal="thumbVecL" from="Player" to="." method="_on_player_thumb_vec_l"]
+[connection signal="thumbVecR" from="Player" to="." method="_on_player_thumb_vec_r"]
+[connection signal="yButton" from="Player" to="." method="_on_player_y_button"]
