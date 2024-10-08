@@ -9,7 +9,7 @@ signal thumbVecR(name: String, value: Vector2)
 
 # Left buttons (click)
 func _on_left_hand_button_pressed(name: String) -> void:
-	if name == "ax_button":
+	if name == "by_button":
 		yButton.emit()
 
 # Right buttons (click)
